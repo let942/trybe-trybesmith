@@ -8,6 +8,10 @@ const ProductsService = {
     return product;
   },
 
+  getAll: async (): Promise<Product[]> => {
+    const products = await ProductsModel.getAll();
+    return products;
+  },
 };
 
 export default ProductsService;
