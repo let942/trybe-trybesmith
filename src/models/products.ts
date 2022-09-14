@@ -7,8 +7,8 @@ interface ProductWithRow extends Product, RowDataPacket { }
 const ProductsModel = {
   create: async ({ name, amount }: Product): Promise<Product> => {
     const query = 'INSERT INTO Trybesmith.Products (name, amount) VALUES (?, ?);';
-    const [{ insertId }] = await connection.execute<ResultSetHeader>(query, [name, amount]);
-    return { id: insertId, name, amount };
+    const [result] = await connection.execute<ResultSetHeader>(query, [name, amount]);
+    return { id: result.insertId, name, amount };
   },
 
   getAll: async (): Promise<Product[]> => {
