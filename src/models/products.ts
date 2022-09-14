@@ -13,7 +13,7 @@ const ProductsModel = {
 
   getAll: async (): Promise<Product[]> => {
     const [result] = await connection
-      .execute<ProductWithRow[]>('SELECT * FROM Trybesmith.Products;');
+      .execute<ProductWithRow[]>('SELECT * FROM Trybesmith.Products; ');
     return result;
   },
 
