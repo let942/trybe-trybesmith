@@ -1,7 +1,7 @@
 import { RowDataPacket } from 'mysql2/promise';
 import connection from './connection';
 import Order from '../interfaces/orders.interface';
-import OrderDTO from '../interfaces/OrderDTO.interface';
+import OrderDTO from '../interfaces/orderDTO.interface';
 
 interface ProductWithRow extends OrderDTO, RowDataPacket { }
 
