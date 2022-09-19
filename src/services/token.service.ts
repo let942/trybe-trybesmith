@@ -8,7 +8,7 @@ const jwtConfig: object = {
 const secret = 'MelanciaNapolitana';
 
 const tokenService = {
-  createToken: (claims: string) => {
+  createToken: (claims: number) => {
     const payload = { payload: claims };
     const token = jwt.sign(payload, secret, jwtConfig);
     return token;
