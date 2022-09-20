@@ -49,8 +49,6 @@ export function userValidationLevel(req: Request, res: Response, next: NextFunct
   next();
 }
 
-
-
 export function userValidationPassword(req: Request, res: Response, next: NextFunction) {
   const { password } = req.body;
   if (!password) {
