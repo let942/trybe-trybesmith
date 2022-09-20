@@ -21,6 +21,13 @@ const UsersModel = {
     console.log(result);
     return result;
   },
+  getById: async (id: number) => {
+    const query = ` SELECT * FROM Trybesmith.Users
+    WHERE id = ?`;
+    const [[result]] = await connection
+      .execute<ProductWithRow[]>(query, [id]);
+    return result;
+  },
 
 };
 

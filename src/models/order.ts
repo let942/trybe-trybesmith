@@ -1,4 +1,4 @@
-import { RowDataPacket } from 'mysql2/promise';
+import { RowDataPacket, ResultSetHeader } from 'mysql2/promise';
 import connection from './connection';
 import Order from '../interfaces/orders.interface';
 import OrderDTO from '../interfaces/orderDTO.interface';
@@ -25,6 +25,12 @@ const ProductsModel = {
       return acc;
     }, {});
     return Object.values(orders).sort((a: Order, b: Order) => a.userId - b.userId);
+  },
+
+  create: async (userId: number): Promise<Order> => {
+    const query = 'INSERT INTO Trybesmith.Orders (userId) VALUES (?);';
+    const [result] = await connection.execute<ResultSetHeader>(query, [userId]);
+    return { id: result.insertId, userId, productsIds: [] };
   },
 };
 
