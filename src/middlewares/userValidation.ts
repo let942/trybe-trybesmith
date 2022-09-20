@@ -31,12 +31,16 @@ export function userValidationClasse(req: Request, res: Response, next: NextFunc
   next();
 }
 
+function isNotANumber(value: unknown): boolean {
+  return (typeof (value) !== 'number');
+}
+
 export function userValidationLevel(req: Request, res: Response, next: NextFunction) {
   const { level } = req.body;
-  if (!level) {
+  if (!level && isNotANumber(level)) {
     return res.status(400).json({ message: '"level" is required' });
   }
-  if ((typeof (level) !== 'number')) {
+  if (isNotANumber(level)) {
     return res.status(422).json({ message: '"level" must be a number' });
   }
   if (level <= 0) {
@@ -44,6 +48,8 @@ export function userValidationLevel(req: Request, res: Response, next: NextFunct
   }
   next();
 }
+
+
 
 export function userValidationPassword(req: Request, res: Response, next: NextFunction) {
   const { password } = req.body;
