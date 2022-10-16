@@ -21,7 +21,8 @@ Você pode acessar os termos de uso através desse [link](https://www.betrybe.co
 Clone o projeto:
 
 ```bash
-  git clone https://github.com/let942/Tryunfo-Trybe
+  git clone https://github.com/let942/trybe-trybesmith
+
 ```
 
 Instale as dependências:
